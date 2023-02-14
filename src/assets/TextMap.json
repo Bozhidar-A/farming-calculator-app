@@ -1,0 +1,18 @@
+{
+  "EN": {
+    "Sidebar_home": "Home",
+    "Sidebar_sowingRate": "Sowing Rate",
+    "Sidebar_moreComingSoon": "More to be added soon...",
+    "Home_welcomeText": "Welcome to the home page of the farmer calculating app",
+    "Home_subWelcomeTextDesktop": "The use the fetures of this app please look at the left side menu and pick the feature you want to use",
+    "Home_subWelcomeTextMobile": "The use the fetures of this app please tap at the top left and pick the feature you want to use"
+  },
+  "BG": {
+    "Sidebar_home": "Начало",
+    "Sidebar_sowingRate": "Семенен рейт",
+    "Sidebar_moreComingSoon": "Още скоро...",
+    "Home_welcomeText": "Добре дошли в началната страница на приложението за фермерски изчисления",
+    "Home_subWelcomeTextDesktop": "За да използвате функциите на това приложение, моля, използвайте менюто от лявата страна и изберете функцията, която искате да използвате",
+    "Home_subWelcomeTextMobile": "За да използвате функциите на това приложение, моля, натиснете бутона горе в ляво и изберете функцията, която искате да използвате"
+  }
+}
