@@ -1,0 +1,54 @@
+[
+  {
+    "culture": "Alfalfa",
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        {
+          "color": "FFE699",
+          "valNum": 0.9
+        },
+        {
+          "color": "FFC000",
+          "valNum": 0.93
+        },
+        {
+          "color": "92D050",
+          "valNum": 0.95
+        },
+        {
+          "color": "92D050",
+          "valNum": 0.97
+        },
+        {
+          "color": "00B050",
+          "valNum": 0.99
+        }
+      ]
+    },
+    "wantedPlantsPerMeterSquard": {
+      "type": "slider",
+      "minSliderVal": 600,
+      "maxSliderVal": 700
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "minSliderVal": 1.8,
+      "maxSliderVal": 2.2
+    },
+    "purity": {
+      "type": "const",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "minSliderVal": 0.1,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacing": {
+      "type": "slider",
+      "minSliderVal": 10,
+      "maxSliderVal": 15
+    }
+  }
+]
