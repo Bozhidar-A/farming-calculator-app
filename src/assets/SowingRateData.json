@@ -5,23 +5,23 @@
       "type": "buttons",
       "values": [
         {
-          "color": "FFE699",
+          "color": "#FFE699",
           "valNum": 0.9
         },
         {
-          "color": "FFC000",
+          "color": "#FFC000",
           "valNum": 0.93
         },
         {
-          "color": "92D050",
+          "color": "#92D050",
           "valNum": 0.95
         },
         {
-          "color": "92D050",
+          "color": "#92D050",
           "valNum": 0.97
         },
         {
-          "color": "00B050",
+          "color": "#00B050",
           "valNum": 0.99
         }
       ]
@@ -42,7 +42,7 @@
     },
     "germination": {
       "type": "slider",
-      "minSliderVal": 0.1,
+      "minSliderVal": 0.0,
       "maxSliderVal": 100.0
     },
     "rowSpacing": {
