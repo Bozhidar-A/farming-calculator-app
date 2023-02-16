@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="side-lang">
+<div class="side-settings">
   <select on:change={LangSelectHandler}>
     <!-- <option value="EN">🇬🇧</option>
     <option value="BG">🇧🇬</option> -->

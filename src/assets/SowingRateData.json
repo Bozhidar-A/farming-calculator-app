@@ -42,10 +42,10 @@
     },
     "germination": {
       "type": "slider",
-      "minSliderVal": 0.0,
+      "minSliderVal": 75.0,
       "maxSliderVal": 100.0
     },
-    "rowSpacing": {
+    "rowSpacingCm": {
       "type": "slider",
       "minSliderVal": 10,
       "maxSliderVal": 15

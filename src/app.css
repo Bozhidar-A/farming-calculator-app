@@ -90,6 +90,16 @@ body {
   margin: 0;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+}
+
+optgroup {
+  font-size: 75px;
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -114,11 +124,11 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 10% 90%;
-  grid-template-areas: "side-lang" "side-btns";
+  grid-template-areas: "side-settings" "side-btns";
 }
 
-.side-lang {
-  grid-area: side-lang;
+.side-settings {
+  grid-area: side-settings;
   margin-top: 15px;
 }
 

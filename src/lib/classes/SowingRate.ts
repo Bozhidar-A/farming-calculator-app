@@ -5,13 +5,20 @@
 // @ts-nocheck
 
 export class SowingRate implements SowingRateInterface {
+  // input data
   culture: string;
   coefficientSecurity: number;
   wantedPlantsPerMeterSquard: number;
   massPer1000g: number;
   purity: number;
   germination: number;
-  rowSpacing: number;
+  rowSpacingCm: number;
+
+  // output data
+  sowingRateSafeSeedsPerMeterSquared: number = 0;
+  sowingRatePlantsDa: number = 0;
+  usedSeedsKgPerDa: number = 0;
+  internalRowHeightCm: number = 0;
 
   // constructors
   constructor(
@@ -29,7 +36,7 @@ export class SowingRate implements SowingRateInterface {
     this.massPer1000g = massPer1000g;
     this.purity = purity;
     this.germination = germination;
-    this.rowSpacing = rowSpacing;
+    this.rowSpacingCm = rowSpacing;
   }
 
   // empty constructor
@@ -88,24 +95,102 @@ export class SowingRate implements SowingRateInterface {
   }
 
   get GetRowSpacing() {
-    return this.rowSpacing;
+    return this.rowSpacingCm;
   }
 
   set SetRowSpacing(rowSpacing: number) {
-    this.rowSpacing = rowSpacing;
+    this.rowSpacingCm = rowSpacing;
+  }
+
+  //outputs
+  get GetSowingRateSafeSeedsPerMeterSquared() {
+    return this.sowingRateSafeSeedsPerMeterSquared;
+  }
+
+  set SetSowingRateSafeSeedsPerMeterSquared(
+    sowingRateSafeSeedsPerMeterSquared: number
+  ) {
+    this.sowingRateSafeSeedsPerMeterSquared =
+      sowingRateSafeSeedsPerMeterSquared;
+  }
+
+  get GetSowingRatePlantsDa() {
+    return this.sowingRatePlantsDa;
+  }
+
+  set SetSowingRatePlantsDa(sowingRatePlantsDa: number) {
+    this.sowingRatePlantsDa = sowingRatePlantsDa;
+  }
+
+  get GetUsedSeedsKgPerDa() {
+    return this.usedSeedsKgPerDa;
+  }
+
+  set SetUsedSeedsKgPerDa(usedSeedsKgPerDa: number) {
+    this.usedSeedsKgPerDa = usedSeedsKgPerDa;
+  }
+
+  get GetInternalRowHeightCm() {
+    return this.internalRowHeightCm;
+  }
+
+  set SetInternalRowHeightCm(internalRowHeightCm: number) {
+    this.internalRowHeightCm = internalRowHeightCm;
   }
 
   // funcs
+  CalculateSowingRateSafeSeedsPerMeterSquared(): number {
+    return (
+      (this.wantedPlantsPerMeterSquard * 100) /
+      (this.germination * this.coefficientSecurity)
+    );
+  }
+
+  CalculateSowingRatePlantsDa(): number {
+    return this.CalculateSowingRateSafeSeedsPerMeterSquared() * 10000;
+  }
+
+  CalculateUsedSeedsKgPerDa(): number {
+    return (
+      (this.CalculateSowingRateSafeSeedsPerMeterSquared() *
+        this.massPer1000g *
+        10) /
+      (this.purity * this.germination)
+    );
+  }
+
+  CalculateInternalRowHeightCm(): number {
+    return (
+      100 /
+      this.rowSpacingCm /
+      this.CalculateSowingRateSafeSeedsPerMeterSquared()
+    );
+  }
+
+  CalculateEndResults(): void {
+    this.sowingRateSafeSeedsPerMeterSquared =
+      this.CalculateSowingRateSafeSeedsPerMeterSquared();
+    this.sowingRatePlantsDa = this.CalculateSowingRatePlantsDa();
+    this.usedSeedsKgPerDa = this.CalculateUsedSeedsKgPerDa();
+    this.internalRowHeightCm = this.CalculateInternalRowHeightCm();
+  }
 }
 
 export interface SowingRateInterface {
+  // input data
   culture: string;
   coefficientSecurity: number;
   wantedPlantsPerMeterSquard: number;
   massPer1000g: number;
   purity: number;
   germination: number;
-  rowSpacing: number;
+  rowSpacingCm: number;
+
+  // output data
+  sowingRateSafeSeedsPerMeterSquared: number;
+  sowingRatePlantsDa: number;
+  usedSeedsKgPerDa: number;
+  internalRowHeightCm: number;
 
   // getters and setters
   GetCulture: string;
@@ -122,6 +207,21 @@ export interface SowingRateInterface {
   SetGermination: number;
   GetRowSpacing: number;
   SetRowSpacing: number;
+  GetSowingRateSafeSeedsPerMeterSquared: number;
+  SetSowingRateSafeSeedsPerMeterSquared: number;
+  GetSowingRatePlantsDa: number;
+  SetSowingRatePlantsDa: number;
+  GetUsedSeedsKgPerDa: number;
+  SetUsedSeedsKgPerDa: number;
+  GetInternalRowHeightCm: number;
+  SetInternalRowHeightCm: number;
+
+  // funcs
+  CalculateSowingRateSafeSeedsPerMeterSquared(): number;
+  CalculateSowingRatePlantsDa(): number;
+  CalculateUsedSeedsKgPerDa(): number;
+  CalculateInternalRowHeightCm(): number;
+  CalculateEndResults(): void;
 }
 
 // working data ^
@@ -173,5 +273,5 @@ export interface SowingRateFetchedInterface {
   massPer1000g: MassPer1000g;
   purity: Purity;
   germination: Germination;
-  rowSpacing: RowSpacing;
+  rowSpacingCm: RowSpacing;
 }
