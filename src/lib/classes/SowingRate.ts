@@ -16,8 +16,8 @@ export class SowingRate implements SowingRateInterface {
 
   // output data
   sowingRateSafeSeedsPerMeterSquared: number = 0;
-  sowingRatePlantsDa: number = 0;
-  usedSeedsKgPerDa: number = 0;
+  sowingRatePlantsPerDecare: number = 0;
+  usedSeedsKgPerDecare: number = 0;
   internalRowHeightCm: number = 0;
 
   // constructors
@@ -115,19 +115,19 @@ export class SowingRate implements SowingRateInterface {
   }
 
   get GetSowingRatePlantsDa() {
-    return this.sowingRatePlantsDa;
+    return this.sowingRatePlantsPerDecare;
   }
 
   set SetSowingRatePlantsDa(sowingRatePlantsDa: number) {
-    this.sowingRatePlantsDa = sowingRatePlantsDa;
+    this.sowingRatePlantsPerDecare = sowingRatePlantsDa;
   }
 
   get GetUsedSeedsKgPerDa() {
-    return this.usedSeedsKgPerDa;
+    return this.usedSeedsKgPerDecare;
   }
 
   set SetUsedSeedsKgPerDa(usedSeedsKgPerDa: number) {
-    this.usedSeedsKgPerDa = usedSeedsKgPerDa;
+    this.usedSeedsKgPerDecare = usedSeedsKgPerDa;
   }
 
   get GetInternalRowHeightCm() {
@@ -147,7 +147,7 @@ export class SowingRate implements SowingRateInterface {
   }
 
   CalculateSowingRatePlantsDa(): number {
-    return this.CalculateSowingRateSafeSeedsPerMeterSquared() * 10000;
+    return this.CalculateSowingRateSafeSeedsPerMeterSquared() * 1000;
   }
 
   CalculateUsedSeedsKgPerDa(): number {
@@ -161,7 +161,7 @@ export class SowingRate implements SowingRateInterface {
 
   CalculateInternalRowHeightCm(): number {
     return (
-      100 /
+      10000 /
       this.rowSpacingCm /
       this.CalculateSowingRateSafeSeedsPerMeterSquared()
     );
@@ -170,8 +170,8 @@ export class SowingRate implements SowingRateInterface {
   CalculateEndResults(): void {
     this.sowingRateSafeSeedsPerMeterSquared =
       this.CalculateSowingRateSafeSeedsPerMeterSquared();
-    this.sowingRatePlantsDa = this.CalculateSowingRatePlantsDa();
-    this.usedSeedsKgPerDa = this.CalculateUsedSeedsKgPerDa();
+    this.sowingRatePlantsPerDecare = this.CalculateSowingRatePlantsDa();
+    this.usedSeedsKgPerDecare = this.CalculateUsedSeedsKgPerDa();
     this.internalRowHeightCm = this.CalculateInternalRowHeightCm();
   }
 }
@@ -188,33 +188,9 @@ export interface SowingRateInterface {
 
   // output data
   sowingRateSafeSeedsPerMeterSquared: number;
-  sowingRatePlantsDa: number;
-  usedSeedsKgPerDa: number;
+  sowingRatePlantsPerDecare: number;
+  usedSeedsKgPerDecare: number;
   internalRowHeightCm: number;
-
-  // getters and setters
-  GetCulture: string;
-  SetCulture: string;
-  GetCoefficientSecurity: number;
-  SetCoefficientSecurity: number;
-  GetWantedPlantsPerMeterSquard: number;
-  SetWantedPlantsPerMeterSquard: number;
-  GetMassPer1000g: number;
-  SetMassPer1000g: number;
-  GetPurity: number;
-  SetPurity: number;
-  GetGermination: number;
-  SetGermination: number;
-  GetRowSpacing: number;
-  SetRowSpacing: number;
-  GetSowingRateSafeSeedsPerMeterSquared: number;
-  SetSowingRateSafeSeedsPerMeterSquared: number;
-  GetSowingRatePlantsDa: number;
-  SetSowingRatePlantsDa: number;
-  GetUsedSeedsKgPerDa: number;
-  SetUsedSeedsKgPerDa: number;
-  GetInternalRowHeightCm: number;
-  SetInternalRowHeightCm: number;
 
   // funcs
   CalculateSowingRateSafeSeedsPerMeterSquared(): number;

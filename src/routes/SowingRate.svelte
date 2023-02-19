@@ -9,6 +9,7 @@
     type SowingRateInterface,
   } from "../lib/classes/SowingRate";
   import Sidebar from "../lib/Sidebar.svelte";
+  import { FormatNumber } from "../lib/Internationalization";
 
   // the fetched data with bounds and stuff
   let sowingRateDataFetched: SowingRateFetchedInterface = data[0];
@@ -183,32 +184,51 @@
           </div>
         </div>
       </div>
-
+      <button
+        on:click={() => {
+          sowingRateDataWorking.wantedPlantsPerMeterSquard = 28;
+          sowingRateDataWorking.massPer1000g = 200;
+          sowingRateDataWorking.germination = 92;
+          sowingRateDataWorking.rowSpacingCm = 70;
+        }}>force known result test vals</button
+      >
       <hr />
 
       <div class="outputs">
         <button on:click={CalculateEndResults}>~~~ = ~~~</button>
         <div class="output-container">
           <p>
-            {$store.textMap.SowingRate_safeSeedsPerMeterSquared} - {sowingRateDataWorking.sowingRateSafeSeedsPerMeterSquared}
+            {$store.textMap.SowingRate_safeSeedsPerMeterSquared} - {FormatNumber(
+              sowingRateDataWorking.sowingRateSafeSeedsPerMeterSquared,
+              0
+            )}
           </p>
         </div>
 
         <div class="output-container">
           <p>
-            {$store.textMap.SowingRate_plantsDa} - {sowingRateDataWorking.sowingRatePlantsDa}
+            {$store.textMap.SowingRate_plantsDa} - {FormatNumber(
+              sowingRateDataWorking.sowingRatePlantsPerDecare,
+              0
+            )}
           </p>
         </div>
 
         <div class="output-container">
           <p>
-            {$store.textMap.SowingRate_usedSeedsKgPerDa} - {sowingRateDataWorking.usedSeedsKgPerDa}
+            {$store.textMap.SowingRate_usedSeedsKgPerDa} - {FormatNumber(
+              sowingRateDataWorking.usedSeedsKgPerDecare,
+              1
+            )}
           </p>
         </div>
 
         <div class="output-container">
           <p>
-            {$store.textMap.SowingRate_internalRowHeightCm} - {sowingRateDataWorking.internalRowHeightCm}
+            {$store.textMap.SowingRate_internalRowHeightCm} - {FormatNumber(
+              sowingRateDataWorking.internalRowHeightCm,
+              1
+            )}
           </p>
         </div>
       </div>
