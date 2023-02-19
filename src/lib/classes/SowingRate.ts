@@ -203,14 +203,9 @@ export interface SowingRateInterface {
 // working data ^
 
 // fetched data
-export interface Value {
-  color: string;
-  valNum: number;
-}
-
 export interface CoefficientSecurity {
   type: string;
-  values: Value[];
+  values: number[];
 }
 
 export interface WantedPlantsPerMeterSquard {

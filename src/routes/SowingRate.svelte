@@ -11,6 +11,14 @@
   import Sidebar from "../lib/Sidebar.svelte";
   import { FormatNumber } from "../lib/Internationalization";
 
+  const buttonTypeColors = [
+    "#FFE699",
+    "#FFC000",
+    "#92D050",
+    "#92D050",
+    "#00B050",
+  ];
+
   // the fetched data with bounds and stuff
   let sowingRateDataFetched: SowingRateFetchedInterface = data[0];
 
@@ -19,7 +27,7 @@
   // when I use an app and refresh I USUALLY want to start over
   let sowingRateDataWorking: SowingRateInterface = new SowingRate(
     data[0].culture,
-    data[0].coefficientSecurity.values[0].valNum,
+    data[0].coefficientSecurity.values[0],
     data[0].wantedPlantsPerMeterSquard.minSliderVal,
     data[0].massPer1000g.minSliderVal,
     data[0].purity.val,
@@ -74,15 +82,15 @@
               {sowingRateDataWorking.coefficientSecurity}
             </p>
             <div class="coefficient-security-buttons">
-              {#each sowingRateDataFetched.coefficientSecurity.values as value}
+              {#each sowingRateDataFetched.coefficientSecurity.values as value, i}
                 <button
                   class="multi-option-button"
-                  style="background-color: {value.color}"
+                  style="background-color: {buttonTypeColors[i]}"
                   on:click={() => {
-                    sowingRateDataWorking.coefficientSecurity = value.valNum;
+                    sowingRateDataWorking.coefficientSecurity = value;
                   }}
                 >
-                  {value.valNum}
+                  {value}
                 </button>
               {/each}
             </div>
