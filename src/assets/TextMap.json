@@ -13,10 +13,10 @@
     "SowingRate_massPer1000g": "Mass per 1000g",
     "SowingRate_purity": "Purity",
     "SowingRate_germination": "Germination",
-    "SowingRate_rowSpacing": "Row spacing",
-    "SowingRate_safeSeedsPerMeterSquared": "Safe seeds per meter squared",
-    "SowingRate_plantsDa": "Plants da",
-    "SowingRate_usedSeedsKgPerDa": "Used seeds kg per da",
+    "SowingRate_rowSpacingCm": "Row spacing",
+    "SowingRate_sowingRateSafeSeedsPerMeterSquared": "Safe seeds per meter squared",
+    "SowingRate_sowingRatePlantsPerDecare": "Plants da",
+    "SowingRate_usedSeedsKgPerDecare": "Used seeds kg per da",
     "SowingRate_internalRowHeightCm": "Internal row height cm"
   },
   "BG": {
@@ -33,10 +33,10 @@
     "SowingRate_massPer1000g": "Маса на 1000г.",
     "SowingRate_purity": "Чистота",
     "SowingRate_germination": "Кълняемост",
-    "SowingRate_rowSpacing": "Разстояние между редовете",
-    "SowingRate_safeSeedsPerMeterSquared": "Безопасни семена на кв.м.",
-    "SowingRate_plantsDa": "Растения да",
-    "SowingRate_usedSeedsKgPerDa": "Използвани семена кг на да",
+    "SowingRate_rowSpacingCm": "Разстояние между редовете",
+    "SowingRate_sowingRateSafeSeedsPerMeterSquared": "Безопасни семена на кв.м.",
+    "SowingRate_sowingRatePlantsPerDecare": "Растения да",
+    "SowingRate_usedSeedsKgPerDecare": "Използвани семена кг на да",
     "SowingRate_internalRowHeightCm": "Вътрешна височина на реда см"
   }
 }

@@ -11,6 +11,7 @@
   import SowingRateButtons from "../lib/components/SowingRateButtons.svelte";
   import SowingRateSlider from "../lib/components/SowingRateSlider.svelte";
   import SowingRateConst from "../lib/components/SowingRateConst.svelte";
+  import SowingRateOutput from "../lib/components/SowingRateOutput.svelte";
 
   // the fetched data with bounds and stuff
   let sowingRateDataFetched: SowingRateFetchedInterface = data[0];
@@ -63,7 +64,7 @@
               >
               (<i>{sowingRateDataFetched.culture.latin}</i>)
             </p>
-            <select on:change={UpdateCultureData} class="stretchy">
+            <select on:change={UpdateCultureData} class="full-width">
               {#each supportedCultures as culture}
                 <option value={culture}>{culture}</option>
               {/each}
@@ -83,6 +84,7 @@
           bind:sowingRateDataWorking
           bind:sowingRateDataFetched
           step={1}
+          unit="plants/m²"
           wantedProperty="wantedPlantsPerMeterSquared"
         />
 
@@ -91,6 +93,7 @@
           bind:sowingRateDataWorking
           bind:sowingRateDataFetched
           step={0.1}
+          unit="g"
           wantedProperty="massPer1000g"
         />
 
@@ -98,6 +101,7 @@
           bind:textMap={$store.textMap}
           bind:sowingRateDataWorking
           bind:sowingRateDataFetched
+          unit="%"
           wantedProperty="purity"
         />
 
@@ -106,6 +110,7 @@
           bind:sowingRateDataWorking
           bind:sowingRateDataFetched
           step={1}
+          unit="%"
           wantedProperty="germination"
         />
 
@@ -114,6 +119,7 @@
           bind:sowingRateDataWorking
           bind:sowingRateDataFetched
           step={1}
+          unit="cm"
           wantedProperty="rowSpacingCm"
         />
       </div>
@@ -132,41 +138,38 @@
 
       <div class="outputs">
         <button on:click={CalculateEndResults}>~~~ = ~~~</button>
-        <div class="output-container">
-          <p>
-            {$store.textMap.SowingRate_safeSeedsPerMeterSquared} - {FormatNumber(
-              sowingRateDataWorking.sowingRateSafeSeedsPerMeterSquared,
-              0
-            )}
-          </p>
-        </div>
 
-        <div class="output-container">
-          <p>
-            {$store.textMap.SowingRate_plantsDa} - {FormatNumber(
-              sowingRateDataWorking.sowingRatePlantsPerDecare,
-              0
-            )}
-          </p>
-        </div>
+        <SowingRateOutput
+          bind:textMap={$store.textMap}
+          bind:sowingRateDataWorking
+          unit="plants/m²"
+          fixedDigitsCount="0"
+          wantedProperty="sowingRateSafeSeedsPerMeterSquared"
+        />
 
-        <div class="output-container">
-          <p>
-            {$store.textMap.SowingRate_usedSeedsKgPerDa} - {FormatNumber(
-              sowingRateDataWorking.usedSeedsKgPerDecare,
-              1
-            )}
-          </p>
-        </div>
+        <SowingRateOutput
+          bind:textMap={$store.textMap}
+          bind:sowingRateDataWorking
+          unit="sowing rate/da"
+          fixedDigitsCount="0"
+          wantedProperty="sowingRatePlantsPerDecare"
+        />
 
-        <div class="output-container">
-          <p>
-            {$store.textMap.SowingRate_internalRowHeightCm} - {FormatNumber(
-              sowingRateDataWorking.internalRowHeightCm,
-              1
-            )}
-          </p>
-        </div>
+        <SowingRateOutput
+          bind:textMap={$store.textMap}
+          bind:sowingRateDataWorking
+          unit="kg/da"
+          fixedDigitsCount="1"
+          wantedProperty="usedSeedsKgPerDecare"
+        />
+
+        <SowingRateOutput
+          bind:textMap={$store.textMap}
+          bind:sowingRateDataWorking
+          unit="cm"
+          fixedDigitsCount="1"
+          wantedProperty="internalRowHeightCm"
+        />
       </div>
     </div>
   </div>

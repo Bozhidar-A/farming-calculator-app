@@ -192,6 +192,64 @@ a:active {
   cursor: pointer;
 }
 
+/* component css */
+.max-width {
+  max-width: 100%;
+}
+
+.full-width {
+  width: 100%;
+  text-align: center;
+}
+
+.component-input-container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  margin: 3vh 0;
+}
+
+.component-var-name {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.component-var-name > p {
+  margin: 0;
+}
+
+.component-var-input {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: -1vh;
+}
+
+.component-var-value {
+  grid-column: 3;
+  text-align: center;
+  align-self: center;
+}
+
+.component-output-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 3vh 0;
+}
+
+.component-output-var-name {
+  grid-column: 1;
+}
+
+.component-output-var-value {
+  grid-column: 2;
+}
+
 // mobile
 @media only screen and (max-width: 600px) {
   .home-mobile-sub {
