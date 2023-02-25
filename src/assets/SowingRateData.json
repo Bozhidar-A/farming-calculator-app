@@ -8,7 +8,7 @@
       "type": "buttons",
       "values": [0.9, 0.93, 0.95, 0.97, 0.99]
     },
-    "wantedPlantsPerMeterSquard": {
+    "wantedPlantsPerMeterSquared": {
       "type": "slider",
       "minSliderVal": 600,
       "maxSliderVal": 700

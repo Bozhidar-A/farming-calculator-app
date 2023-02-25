@@ -22,7 +22,7 @@ export interface FetchedConstInterface {
 export default interface SowingRateFetchedInterface {
   culture: CultureInterface;
   coefficientSecurity: FetchedButtonsInterface;
-  wantedPlantsPerMeterSquard: FetchedSliderInterface;
+  wantedPlantsPerMeterSquared: FetchedSliderInterface;
   massPer1000g: FetchedSliderInterface;
   purity: FetchedConstInterface;
   germination: FetchedSliderInterface;

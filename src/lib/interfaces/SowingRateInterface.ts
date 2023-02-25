@@ -2,7 +2,7 @@ export default interface SowingRateInterface {
   // input data
   culture: string;
   coefficientSecurity: number;
-  wantedPlantsPerMeterSquard: number;
+  wantedPlantsPerMeterSquared: number;
   massPer1000g: number;
   purity: number;
   germination: number;

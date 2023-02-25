@@ -8,18 +8,18 @@
   import { store } from "./lib/Store";
   import SowingRate from "./routes/SowingRate.svelte";
 
-  let savestore = false;
-  $: if (savestore && $store) {
-    window.sessionStorage.setItem("store", JSON.stringify($store));
-  }
-  onMount(async () => {
-    let ses = window.sessionStorage.getItem("store");
-    if (ses) {
-      console.log("sob-- ~ loading ses", ses);
-      $store = JSON.parse(ses);
-    }
-    savestore = true;
-  });
+  // let savestore = false;
+  // $: if (savestore && $store) {
+  //   window.sessionStorage.setItem("store", JSON.stringify($store));
+  // }
+  // onMount(async () => {
+  //   let ses = window.sessionStorage.getItem("store");
+  //   if (ses) {
+  //     console.log("sob-- ~ loading ses", ses);
+  //     $store = JSON.parse(ses);
+  //   }
+  //   savestore = true;
+  // });
 </script>
 
 <Router>

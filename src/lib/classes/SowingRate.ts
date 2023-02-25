@@ -8,7 +8,7 @@ export class SowingRate implements SowingRateInterface {
   // input data
   culture: string;
   coefficientSecurity: number;
-  wantedPlantsPerMeterSquard: number;
+  wantedPlantsPerMeterSquared: number;
   massPer1000g: number;
   purity: number;
   germination: number;
@@ -24,7 +24,7 @@ export class SowingRate implements SowingRateInterface {
   constructor(
     culture: string,
     coefficientSecurity: number,
-    wantedPlantsPerMeterSquard: number,
+    wantedPlantsPerMeterSquared: number,
     massPer1000g: number,
     purity: number,
     germination: number,
@@ -32,7 +32,7 @@ export class SowingRate implements SowingRateInterface {
   ) {
     this.culture = culture;
     this.coefficientSecurity = coefficientSecurity;
-    this.wantedPlantsPerMeterSquard = wantedPlantsPerMeterSquard;
+    this.wantedPlantsPerMeterSquared = wantedPlantsPerMeterSquared;
     this.massPer1000g = massPer1000g;
     this.purity = purity;
     this.germination = germination;
@@ -62,12 +62,12 @@ export class SowingRate implements SowingRateInterface {
     this.coefficientSecurity = coefficientSecurity;
   }
 
-  get GetWantedPlantsPerMeterSquard() {
-    return this.wantedPlantsPerMeterSquard;
+  get GetWantedPlantsPerMeterSquared() {
+    return this.wantedPlantsPerMeterSquared;
   }
 
-  set SetWantedPlantsPerMeterSquard(wantedPlantsPerMeterSquard: number) {
-    this.wantedPlantsPerMeterSquard = wantedPlantsPerMeterSquard;
+  set SetWantedPlantsPerMeterSquared(wantedPlantsPerMeterSquared: number) {
+    this.wantedPlantsPerMeterSquared = wantedPlantsPerMeterSquared;
   }
 
   get GetMassPer1000g() {
@@ -141,7 +141,7 @@ export class SowingRate implements SowingRateInterface {
   // funcs
   CalculateSowingRateSafeSeedsPerMeterSquared(): number {
     return (
-      (this.wantedPlantsPerMeterSquard * 100) /
+      (this.wantedPlantsPerMeterSquared * 100) /
       (this.germination * this.coefficientSecurity)
     );
   }
