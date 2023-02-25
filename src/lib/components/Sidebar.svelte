@@ -1,7 +1,7 @@
 <script>
   import { Link } from "svelte-navigator";
-  import { UpdateActiveLangMap } from "./Internationalization";
-  import { store } from "./Store";
+  import { UpdateActiveLangMap } from "../Internationalization";
+  import { store } from "../Store";
   const supportedLangs = {
     EN: "🇬🇧",
     BG: "🇧🇬",

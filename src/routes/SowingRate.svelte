@@ -3,13 +3,11 @@
 
   // since all the data is local, we can just import it
   import data from "../assets/SowingRateData.json";
-  import {
-    SowingRate,
-    type SowingRateFetchedInterface,
-    type SowingRateInterface,
-  } from "../lib/classes/SowingRate";
-  import Sidebar from "../lib/Sidebar.svelte";
+  import { SowingRate } from "../lib/classes/SowingRate";
+  import Sidebar from "../lib/components/Sidebar.svelte";
   import { FormatNumber } from "../lib/Internationalization";
+  import type SowingRateFetchedInterface from "../lib/interfaces/SowingRateFetchedInterface";
+  import type SowingRateInterface from "../lib/interfaces/SowingRateInterface";
 
   const buttonTypeColors = [
     "#FFE699",
@@ -23,10 +21,10 @@
   let sowingRateDataFetched: SowingRateFetchedInterface = data[0];
 
   // the working data where all the user input is stored and calculations are made
-  // this COULD be put in the store and persistet, but
+  // this COULD be put in the store and persist, but
   // when I use an app and refresh I USUALLY want to start over
   let sowingRateDataWorking: SowingRateInterface = new SowingRate(
-    data[0].culture,
+    data[0].culture.id,
     data[0].coefficientSecurity.values[0],
     data[0].wantedPlantsPerMeterSquard.minSliderVal,
     data[0].massPer1000g.minSliderVal,
@@ -36,11 +34,11 @@
   ); // just shove in the first that on all on init
 
   // just find all the suuported culture from the json data
-  let supportedCultures: string[] = data.map((culture) => culture.culture);
+  let supportedCultures: string[] = data.map((entry) => entry.culture.id);
 
   function UpdateCultureData(event) {
     sowingRateDataFetched = data.find(
-      (culture) => culture.culture == event.target.value
+      (entry) => entry.culture.id == event.target.value
     );
     sowingRateDataWorking.culture = event.target.value;
   }
@@ -65,7 +63,10 @@
         <div class="input-container">
           <div class="culture">
             <p>
-              {$store.textMap.SowingRate_culture} - {sowingRateDataWorking.culture}
+              {$store.textMap.SowingRate_culture} -
+              <b>{$store.textMap[`culture_${sowingRateDataWorking.culture}`]}</b
+              >
+              (<i>{sowingRateDataFetched.culture.latin}</i>)
             </p>
             <select on:change={UpdateCultureData}>
               {#each supportedCultures as culture}

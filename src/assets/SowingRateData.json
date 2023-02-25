@@ -1,6 +1,9 @@
 [
   {
-    "culture": "Alfalfa",
+    "culture": {
+      "id": "Alfalfa",
+      "latin": "Medicago sativa"
+    },
     "coefficientSecurity": {
       "type": "buttons",
       "values": [0.9, 0.93, 0.95, 0.97, 0.99]
