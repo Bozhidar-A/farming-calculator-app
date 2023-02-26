@@ -36,7 +36,15 @@
         </button>
       {/each}
     </div>
-    <input type="number" bind:value={sowingRateDataWorking[wantedProperty]} />
+    <input
+      type="number"
+      bind:value={sowingRateDataWorking[wantedProperty]}
+      on:change={(e) => {
+        if (e.target.value === "") {
+          sowingRateDataWorking[wantedProperty] = 1;
+        }
+      }}
+    />
   </div>
   <div class="component-var-value">
     <p>{sowingRateDataWorking[wantedProperty]}</p>
