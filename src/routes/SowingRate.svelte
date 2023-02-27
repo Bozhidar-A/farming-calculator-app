@@ -2,10 +2,9 @@
   import { store } from "../lib/Store";
 
   // since all the data is local, we can just import it
-  import data from "../assets/SowingRateData.json";
+  import data from "../../public/assets/SowingRateData.json";
   import { SowingRate } from "../lib/classes/SowingRate";
   import Sidebar from "../lib/components/Sidebar.svelte";
-  import { FormatNumber } from "../lib/Internationalization";
   import type SowingRateFetchedInterface from "../lib/interfaces/SowingRateFetchedInterface";
   import type SowingRateInterface from "../lib/interfaces/SowingRateInterface";
   import SowingRateButtons from "../lib/components/SowingRateButtons.svelte";
@@ -100,7 +99,6 @@
         <SowingRateConst
           bind:textMap={$store.textMap}
           bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
           unit="%"
           wantedProperty="purity"
         />

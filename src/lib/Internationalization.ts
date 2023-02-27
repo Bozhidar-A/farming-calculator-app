@@ -1,5 +1,5 @@
 import { store } from "./Store";
-import textMapJSONALL from "../assets/textMap.json";
+import textMapJSONALL from "../../public/assets/TextMap.json";
 
 export function FormatNumberInternationalization(
   num: number,

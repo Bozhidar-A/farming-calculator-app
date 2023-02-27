@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
-import textMapJSONALL from "../assets/textMap.json";
+import textMapJSONALL from "../../public/assets/TextMap.json";
 
 export const store = writable({
   activeLang: "EN", // default to english

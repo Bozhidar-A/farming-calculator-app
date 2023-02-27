@@ -1,0 +1,36 @@
+[
+  {
+    "culture": {
+      "id": "Alfalfa",
+      "latin": "Medicago sativa"
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "minSliderVal": 600,
+      "maxSliderVal": 700
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "minSliderVal": 1.8,
+      "maxSliderVal": 2.2
+    },
+    "purity": {
+      "type": "const",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "minSliderVal": 10,
+      "maxSliderVal": 15
+    }
+  }
+]

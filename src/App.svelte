@@ -1,5 +1,5 @@
 <script>
-  import { Router, Link, Route } from "svelte-navigator";
+  import { Router, Route } from "svelte-navigator";
   import Home from "./routes/Home.svelte";
 
   // save and load store from memory
