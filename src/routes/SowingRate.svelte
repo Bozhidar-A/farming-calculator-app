@@ -137,7 +137,7 @@
       <hr />
 
       <div class="outputs">
-        <button on:click={CalculateEndResults}>~~~ = ~~~</button>
+        <button on:click={CalculateEndResults} class="full-width large-text spacing">~~~ = ~~~</button>
 
         <SowingRateOutput
           bind:textMap={$store.textMap}

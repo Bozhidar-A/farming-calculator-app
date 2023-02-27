@@ -202,6 +202,15 @@ a:active {
   text-align: center;
 }
 
+.large-text {
+  font-size: 3em;
+}
+
+.spacing {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
 .component-input-container {
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
