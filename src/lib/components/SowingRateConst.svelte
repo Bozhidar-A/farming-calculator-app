@@ -1,7 +1,6 @@
 <script lang="ts">
   export let textMap,
     sowingRateDataWorking,
-    sowingRateDataFetched,
     unit,
     wantedProperty;
 </script>
