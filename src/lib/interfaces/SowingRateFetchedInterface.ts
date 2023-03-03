@@ -10,12 +10,15 @@ export interface FetchedButtonsInterface {
 
 export interface FetchedSliderInterface {
   type: string;
+  step: number;
+  unit: string;
   minSliderVal: number;
   maxSliderVal: number;
 }
 
 export interface FetchedConstInterface {
   type: string;
+  unit: string;
   val: number;
 }
 

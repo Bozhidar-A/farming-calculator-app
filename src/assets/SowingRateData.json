@@ -10,27 +10,77 @@
     },
     "wantedPlantsPerMeterSquared": {
       "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
       "minSliderVal": 600,
       "maxSliderVal": 700
     },
     "massPer1000g": {
       "type": "slider",
+      "step": 0.1,
+      "unit": "g",
       "minSliderVal": 1.8,
       "maxSliderVal": 2.2
     },
     "purity": {
       "type": "const",
+      "unit": "%",
       "val": 99.0
     },
     "germination": {
       "type": "slider",
+      "step": 1,
+      "unit": "%",
       "minSliderVal": 75.0,
       "maxSliderVal": 100.0
     },
     "rowSpacingCm": {
       "type": "slider",
+      "step": 1,
+      "unit": "cm",
       "minSliderVal": 10,
       "maxSliderVal": 15
+    }
+  },
+  {
+    "culture": {
+      "id": "Corn",
+      "latin": "Zea mays"
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 7,
+      "maxSliderVal": 7.5
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 200,
+      "maxSliderVal": 300
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 70
     }
   }
 ]

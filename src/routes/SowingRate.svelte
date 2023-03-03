@@ -2,7 +2,8 @@
   import { store } from "../lib/Store";
 
   // since all the data is local, we can just import it
-  import data from "../../public/assets/SowingRateData.json";
+  // import data from "../../public/assets/SowingRateData.json";
+  import data from "../assets/SowingRateData.json"
   import { SowingRate } from "../lib/classes/SowingRate";
   import Sidebar from "../lib/components/Sidebar.svelte";
   import type SowingRateFetchedInterface from "../lib/interfaces/SowingRateFetchedInterface";
@@ -28,14 +29,28 @@
     data[0].rowSpacingCm.minSliderVal
   ); // just shove in the first that on all on init
 
-  // just find all the suuported culture from the json data
+  // just find all the suported culture from the json data
   let supportedCultures: string[] = data.map((entry) => entry.culture.id);
 
   function UpdateCultureData(event) {
-    sowingRateDataFetched = data.find(
-      (entry) => entry.culture.id == event.target.value
-    );
-    sowingRateDataWorking.culture = event.target.value;
+    let newCult = data.find((entry) => entry.culture.id == event.target.value);
+    sowingRateDataFetched = newCult;
+    console.log(Object.keys(sowingRateDataFetched))
+    console.log(sowingRateDataFetched.rowSpacingCm.type);
+    // sowingRateDataFetched = data.find(
+    //   (entry) => entry.culture.id == event.target.value
+    // );
+    // sowingRateDataWorking.culture = event.target.value;
+
+    Object.keys(sowingRateDataFetched).forEach((pro) => {
+      if (sowingRateDataFetched[pro].type === "buttons") {
+        sowingRateDataWorking[pro] = sowingRateDataFetched[pro].values[0];
+      } else if (sowingRateDataFetched[pro].type === "slider") {
+        sowingRateDataWorking[pro] = sowingRateDataFetched[pro].minSliderVal;
+      } else if (sowingRateDataFetched[pro].type === "const") {
+        sowingRateDataWorking[pro] = sowingRateDataFetched[pro].val;
+      }
+    })
   }
 
   function CalculateEndResults() {
@@ -55,71 +70,56 @@
   <div class="content flex-center-col">
     <div class="component">
       <div class="inputs">
-        <div class="input-container">
-          <div class="culture">
-            <p>
-              {$store.textMap.SowingRate_culture} -
-              <b>{$store.textMap[`culture_${sowingRateDataWorking.culture}`]}</b
-              >
-              (<i>{sowingRateDataFetched.culture.latin}</i>)
-            </p>
-            <select on:change={UpdateCultureData} class="full-width">
-              {#each supportedCultures as culture}
-                <option value={culture}>{culture}</option>
-              {/each}
-            </select>
+        
+
+        {#each Object.keys(sowingRateDataFetched) as cultureProperty}
+          {#if cultureProperty === "culture"}
+            <div class="input-container">
+              <div class="culture">
+                <p>
+                  {$store.textMap.SowingRate_culture} -
+                  <b>{$store.textMap[`culture_${sowingRateDataWorking.culture}`]}</b
+                  >
+                  (<i>{sowingRateDataFetched.culture.latin}</i>)
+                </p>
+                <select on:change={UpdateCultureData} class="full-width">
+                  {#each supportedCultures as culture}
+                    <option value={culture}>{culture}</option>
+                  {/each}
+                </select>
+              </div>
           </div>
-        </div>
+          {/if}
 
-        <SowingRateButtons
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
-          wantedProperty="coefficientSecurity"
-        />
+          {#if sowingRateDataFetched[cultureProperty].type === "buttons"}
+            <SowingRateButtons
+              bind:textMap={$store.textMap}
+              bind:sowingRateDataWorking
+              bind:sowingRateDataFetched
+              wantedProperty={cultureProperty}
+            />
+          {/if}
 
-        <SowingRateSlider
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
-          step={1}
-          unit="plants/m²"
-          wantedProperty="wantedPlantsPerMeterSquared"
-        />
+          {#if sowingRateDataFetched[cultureProperty].type === "slider"}
+            <SowingRateSlider
+              bind:textMap={$store.textMap}
+              bind:sowingRateDataWorking
+              bind:sowingRateDataFetched
+              step={sowingRateDataFetched[cultureProperty].step}
+              unit={sowingRateDataFetched[cultureProperty].unit}
+              wantedProperty={cultureProperty}
+            />
+          {/if}
 
-        <SowingRateSlider
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
-          step={0.1}
-          unit="g"
-          wantedProperty="massPer1000g"
-        />
-
-        <SowingRateConst
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          unit="%"
-          wantedProperty="purity"
-        />
-
-        <SowingRateSlider
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
-          step={1}
-          unit="%"
-          wantedProperty="germination"
-        />
-
-        <SowingRateSlider
-          bind:textMap={$store.textMap}
-          bind:sowingRateDataWorking
-          bind:sowingRateDataFetched
-          step={1}
-          unit="cm"
-          wantedProperty="rowSpacingCm"
-        />
+          {#if sowingRateDataFetched[cultureProperty].type === "const"}
+            <SowingRateConst
+              bind:textMap={$store.textMap}
+              bind:sowingRateDataWorking
+              unit={sowingRateDataFetched[cultureProperty].unit}
+              wantedProperty={cultureProperty}
+            />
+          {/if}
+        {/each}
       </div>
       <button
         on:click={() => {
