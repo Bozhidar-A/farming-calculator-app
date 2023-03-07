@@ -1,8 +1,5 @@
-// VERY BAD
-// this appears to be a bug in svelte as attempting to use
-// culture: string; leads to an Unexpected token error
-// without it ts throws Property does not exist on type
-// @ts-nocheck
+import type SowingRateFetchedInterface from "../interfaces/SowingRateFetchedInterface";
+import type SowingRateInterface from "../interfaces/SowingRateInterface";
 
 export class SowingRate implements SowingRateInterface {
   // input data
@@ -139,6 +136,27 @@ export class SowingRate implements SowingRateInterface {
   }
 
   // funcs
+  FillWithData(data:SowingRateFetchedInterface): void{
+    //this is VERY bad and there is a way to make this more sane, but this works
+    Object.keys(data).forEach((key) => {
+      if(key === "culture"){
+        this.culture = data.culture.id;
+      }
+
+      if(data[key].type === "buttons"){
+        this[key] = data[key].values[0];
+      }
+
+      if(data[key].type === "slider"){
+        this[key] = data[key].minSliderVal;
+      }
+
+      if(data[key].type === "const"){
+        this[key] = data[key].val;
+      }
+    });
+  }
+
   CalculateSowingRateSafeSeedsPerMeterSquared(): number {
     return (
       (this.wantedPlantsPerMeterSquared * 100) /

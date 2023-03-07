@@ -1,3 +1,5 @@
+import type SowingRateFetchedInterface from "./SowingRateFetchedInterface";
+
 export default interface SowingRateInterface {
   // input data
   culture: string;
@@ -20,4 +22,5 @@ export default interface SowingRateInterface {
   CalculateUsedSeedsKgPerDa(): number;
   CalculateInternalRowHeightCm(): number;
   CalculateEndResults(): void;
+  FillWithData(data:SowingRateFetchedInterface): void
 }

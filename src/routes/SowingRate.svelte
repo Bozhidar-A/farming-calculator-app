@@ -20,23 +20,18 @@
   // this COULD be put in the store and persist, but
   // when I use an app and refresh I USUALLY want to start over
   let sowingRateDataWorking: SowingRateInterface = new SowingRate(
-    data[0].culture.id,
-    data[0].coefficientSecurity.values[0],
-    data[0].wantedPlantsPerMeterSquared.minSliderVal,
-    data[0].massPer1000g.minSliderVal,
-    data[0].purity.val,
-    data[0].germination.minSliderVal,
-    data[0].rowSpacingCm.minSliderVal
-  ); // just shove in the first that on all on init
+    "",0,0,0,0,0,0,
+  ); // js does not support multiple constructors, so we have to do this
 
-  // just find all the suported culture from the json data
+  // dynamically fill the working data with the first fetched data
+  sowingRateDataWorking.FillWithData(data[0]);
+
+  // just find all the supported culture from the json data
   let supportedCultures: string[] = data.map((entry) => entry.culture.id);
 
   function UpdateCultureData(event) {
     let newCult = data.find((entry) => entry.culture.id == event.target.value);
     sowingRateDataFetched = newCult;
-    console.log(Object.keys(sowingRateDataFetched))
-    console.log(sowingRateDataFetched.rowSpacingCm.type);
     // sowingRateDataFetched = data.find(
     //   (entry) => entry.culture.id == event.target.value
     // );
