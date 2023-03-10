@@ -27,15 +27,16 @@
   sowingRateDataWorking.FillWithData(data[0]);
 
   // just find all the supported culture from the json data
-  let supportedCultures: string[] = data.map((entry) => entry.culture.id);
+  let supportedCultures: {}[] = data.map((entry) => entry.culture);
+  console.log(supportedCultures)
 
   function UpdateCultureData(event) {
     let newCult = data.find((entry) => entry.culture.id == event.target.value);
     sowingRateDataFetched = newCult;
-    // sowingRateDataFetched = data.find(
-    //   (entry) => entry.culture.id == event.target.value
-    // );
-    // sowingRateDataWorking.culture = event.target.value;
+    sowingRateDataFetched = data.find(
+      (entry) => entry.culture.id == event.target.value
+    );
+    sowingRateDataWorking.culture = event.target.value;
 
     Object.keys(sowingRateDataFetched).forEach((pro) => {
       if (sowingRateDataFetched[pro].type === "buttons") {
@@ -56,6 +57,10 @@
     // I can kinda understand, but why?
     // I have the outputs as dependancies, so the UI should update
   }
+
+  function FetchCultureTextMapID(culture:string){
+    return supportedCultures.find((cul) => cul.id === culture);
+  }
 </script>
 
 <main class="grid-container">
@@ -66,20 +71,18 @@
     <div class="component">
       <div class="inputs">
         
-
         {#each Object.keys(sowingRateDataFetched) as cultureProperty}
           {#if cultureProperty === "culture"}
             <div class="input-container">
               <div class="culture">
                 <p>
                   {$store.textMap.SowingRate_culture} -
-                  <b>{$store.textMap[`culture_${sowingRateDataWorking.culture}`]}</b
-                  >
-                  (<i>{sowingRateDataFetched.culture.latin}</i>)
+                  <b>{$store.textMap[`culture_${FetchCultureTextMapID(sowingRateDataWorking.culture).textMapID}`]}</b>
+                  (<i>{FetchCultureTextMapID(sowingRateDataWorking.culture).latin}</i>)
                 </p>
                 <select on:change={UpdateCultureData} class="full-width">
-                  {#each supportedCultures as culture}
-                    <option value={culture}>{culture}</option>
+                  {#each supportedCultures as cultureData}
+                    <option value={cultureData["id"]}>{$store.textMap[`culture_${cultureData["textMapID"]}`]} - {cultureData["latin"]}</option>
                   {/each}
                 </select>
               </div>
