@@ -7,16 +7,17 @@
   // @ts-ignore
   import { store } from "./lib/Store";
   import SowingRate from "./routes/SowingRate.svelte";
+  import { UpdateActiveLangMap } from "./lib/Internationalization";
 
   let savestore = false;
   $: if (savestore && $store) {
-    window.sessionStorage.setItem("store", JSON.stringify($store));
+    window.sessionStorage.setItem("setLang", $store.activeLang);
   }
   onMount(async () => {
-    let ses = window.sessionStorage.getItem("store");
-    if (ses) {
-      console.log("sob-- ~ loading ses", ses);
-      $store = JSON.parse(ses);
+    let prevSetLang = window.sessionStorage.getItem("setLang");
+    if (prevSetLang) {
+      console.log("Loading wanted user lang: ", prevSetLang);
+      UpdateActiveLangMap(prevSetLang);
     }
     savestore = true;
   });
