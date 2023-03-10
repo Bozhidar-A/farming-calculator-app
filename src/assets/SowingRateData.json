@@ -2,11 +2,18 @@
   {
     "culture": {
       "id": "Alfalfa",
-      "latin": "Medicago sativa"
+      "latin": "Medicago sativa",
+      "textMapID": 1
     },
     "coefficientSecurity": {
       "type": "buttons",
-      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
     },
     "wantedPlantsPerMeterSquared": {
       "type": "slider",
@@ -44,8 +51,393 @@
   },
   {
     "culture": {
+      "id": "Bird's-foot trefoil",
+      "latin": "Lotus corniculatus",
+      "textMapID": 2
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 600,
+      "maxSliderVal": 700
+    },
+    "massPer1000g": {
+      "type": "const",
+      "unit": "g",
+      "val": 1.2
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 10,
+      "maxSliderVal": 15
+    }
+  },
+  {
+    "culture": {
+      "id": "White clover",
+      "latin": "Trifolium repens",
+      "textMapID": 3
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 500,
+      "maxSliderVal": 800
+    },
+    "massPer1000g": {
+      "type": "const",
+      "unit": "g",
+      "val": 1.0
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 10,
+      "maxSliderVal": 15
+    }
+  },
+  {
+    "culture": {
+      "id": "Red clover",
+      "latin": "Trifolium pratense",
+      "textMapID": 4
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 1.5,
+      "maxSliderVal": 2.5
+    },
+    "massPer1000g": {
+      "type": "const",
+      "unit": "g",
+      "val": 1.8
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 10,
+      "maxSliderVal": 15
+    }
+  },
+  {
+    "culture": {
+      "id": "Soybean",
+      "latin": "Glycine max",
+      "textMapID": 5
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 30,
+      "maxSliderVal": 40
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 1,
+      "unit": "g",
+      "minSliderVal": 115,
+      "maxSliderVal": 200
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 70
+    }
+  },
+  {
+    "culture": {
+      "id": "Pea",
+      "latin": "Pisum sativum",
+      "textMapID": 6
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 300,
+      "maxSliderVal": 400
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 170,
+      "maxSliderVal": 230
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Sorghum-Sudan Hybrids",
+      "latin": "Sorghum bicolor x Sorghum sudanense",
+      "textMapID": 7
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 18,
+      "maxSliderVal": 22
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 1,
+      "unit": "g",
+      "minSliderVal": 25,
+      "maxSliderVal": 35
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 40,
+      "maxSliderVal": 50
+    }
+  },
+  {
+    "culture": {
+      "id": "Sudan grass",
+      "latin": "Sorghum sudanense",
+      "textMapID": 8
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [
+        0.9,
+        0.93,
+        0.95,
+        0.97,
+        0.99
+      ]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 25,
+      "maxSliderVal": 35
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 12,
+      "maxSliderVal": 14
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 24,
+      "maxSliderVal": 30
+    }
+  },
+  {
+    "culture": {
+      "id": "Industrial sorghum",
+      "latin": "Sorghum vulgare var. tehnicum",
+      "textMapID": 9
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "slider",
+      "step": 1,
+      "unit": "plants/m²",
+      "minSliderVal": 25,
+      "maxSliderVal": 35
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 1,
+      "unit": "g",
+      "minSliderVal": 16,
+      "maxSliderVal": 18
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "slider",
+      "step": 1,
+      "unit": "cm",
+      "minSliderVal": 24,
+      "maxSliderVal": 30
+    }
+  },
+  {
+    "culture": {
       "id": "Corn",
-      "latin": "Zea mays"
+      "latin": "Zea mays",
+      "textMapID": 10
     },
     "coefficientSecurity": {
       "type": "buttons",
@@ -81,6 +473,286 @@
       "type": "const",
       "unit": "cm",
       "val": 70
+    }
+  },
+  {
+    "culture": {
+      "id": "Perennial ryegrass",
+      "latin": "Lolium perenne",
+      "textMapID": 11
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 40,
+      "maxSliderVal": 55
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Foxtail barley",
+      "latin": "Festuca arundinacea Schreb.",
+      "textMapID": 12
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 2.3,
+      "maxSliderVal": 2.6
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Red fescue",
+      "latin": "Festuca rubra",
+      "textMapID": 13
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 1,
+      "maxSliderVal": 1.3
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Meadow fescue",
+      "latin": "Festuca pratensis Huds",
+      "textMapID": 14
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 1.6,
+      "maxSliderVal": 1.8
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Teasel",
+      "latin": "Dactylis glomerata",
+      "textMapID": 15
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 240
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 0.8,
+      "maxSliderVal": 1.3
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Crested wheatgrass",
+      "latin": "Agropyron cristaum Gaertn",
+      "textMapID": 16
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 1.2,
+      "maxSliderVal": 1.5
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
+    }
+  },
+  {
+    "culture": {
+      "id": "Desert wheatgrass",
+      "latin": "Agropyron desertorum ( Fisch.) Schultes.",
+      "textMapID": 17
+    },
+    "coefficientSecurity": {
+      "type": "buttons",
+      "values": [0.9, 0.93, 0.95, 0.97, 0.99]
+    },
+    "wantedPlantsPerMeterSquared": {
+      "type": "const",
+      "unit": "plants/m²",
+      "val": 200
+    },
+    "massPer1000g": {
+      "type": "slider",
+      "step": 0.1,
+      "unit": "g",
+      "minSliderVal": 2.2,
+      "maxSliderVal": 2.5
+    },
+    "purity": {
+      "type": "const",
+      "unit": "%",
+      "val": 99.0
+    },
+    "germination": {
+      "type": "slider",
+      "step": 1,
+      "unit": "%",
+      "minSliderVal": 75.0,
+      "maxSliderVal": 100.0
+    },
+    "rowSpacingCm": {
+      "type": "const",
+      "unit": "cm",
+      "val": 12.5
     }
   }
 ]
