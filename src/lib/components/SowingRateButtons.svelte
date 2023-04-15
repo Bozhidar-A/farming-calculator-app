@@ -11,6 +11,31 @@
     "#92D050",
     "#00B050",
   ];
+
+  function HandleButtonClick(value) {
+    sowingRateDataWorking[wantedProperty] = value;
+  }
+
+  function HandleChangeTextInput(e) {
+    if (e.target.value === "") {
+      sowingRateDataWorking[wantedProperty] = 1;
+    }
+  }
+
+  var currClass = "within-safe-range";
+
+  //reactively update the css
+  $: if (
+    sowingRateDataWorking[wantedProperty] <
+      sowingRateDataFetched[wantedProperty].minSliderVal ||
+    sowingRateDataWorking[wantedProperty] >
+      sowingRateDataFetched[wantedProperty].maxSliderVal
+  ) {
+    currClass = "outside-safe-range";
+  } else {
+    currClass = "within-safe-range";
+  }
+
 </script>
 
 <div class="component-input-container">
@@ -29,7 +54,7 @@
           class="multi-option-button"
           style="background-color: {buttonTypeColors[i]}"
           on:click={() => {
-            sowingRateDataWorking[wantedProperty] = value;
+            HandleButtonClick(value);
           }}
         >
           {value}
@@ -38,11 +63,10 @@
     </div>
     <input
       type="number"
+      class={currClass}
       bind:value={sowingRateDataWorking[wantedProperty]}
       on:change={(e) => {
-        if (e.target.value === "") {
-          sowingRateDataWorking[wantedProperty] = 1;
-        }
+        HandleChangeTextInput(e);
       }}
     />
   </div>

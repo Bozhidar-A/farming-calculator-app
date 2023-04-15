@@ -1,8 +1,20 @@
 <script lang="ts">
-  export let textMap,
-    sowingRateDataWorking,
-    unit,
-    wantedProperty;
+  export let textMap, sowingRateDataFetched, sowingRateDataWorking, unit, wantedProperty;
+
+  var currClass = "within-safe-range";
+
+  //reactively update the css
+  $: if (sowingRateDataWorking[wantedProperty] !== sowingRateDataFetched[wantedProperty].val) {
+    currClass = "outside-safe-range";
+  } else {
+    currClass = "within-safe-range";
+  }
+
+  function HandleChangeTextInput(e) {
+    if (e.target.value === "") {
+      sowingRateDataWorking[wantedProperty] = 1;
+    }
+  }
 </script>
 
 <div class="component-input-container">
@@ -12,11 +24,10 @@
   <div class="component-var-input">
     <input
       type="number"
+      class={currClass}
       bind:value={sowingRateDataWorking[wantedProperty]}
       on:change={(e) => {
-        if (e.target.value === "") {
-          sowingRateDataWorking[wantedProperty] = 1;
-        }
+        HandleChangeTextInput(e);
       }}
     />
   </div>

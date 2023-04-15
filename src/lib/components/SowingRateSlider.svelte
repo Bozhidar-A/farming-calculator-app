@@ -5,6 +5,26 @@
     step,
     unit,
     wantedProperty;
+
+  var currClass = "within-safe-range";
+
+  //reactively update the css
+  $: if (
+    sowingRateDataWorking[wantedProperty] <
+      sowingRateDataFetched[wantedProperty].minSliderVal ||
+    sowingRateDataWorking[wantedProperty] >
+      sowingRateDataFetched[wantedProperty].maxSliderVal
+  ) {
+    currClass = "outside-safe-range";
+  } else {
+    currClass = "within-safe-range";
+  }
+
+  function HandleChangeTextInput(e) {
+    if (e.target.value === "") {
+      sowingRateDataWorking[wantedProperty] = 1;
+    }
+  }
 </script>
 
 <div class="component-input-container">
@@ -21,12 +41,11 @@
 
   <div class="component-var-input">
     <input
+      class={currClass}
       type="number"
       bind:value={sowingRateDataWorking[wantedProperty]}
       on:change={(e) => {
-        if (e.target.value === "") {
-          sowingRateDataWorking[wantedProperty] = 1;
-        }
+        HandleChangeTextInput(e);
       }}
     />
     <input
@@ -35,7 +54,7 @@
       max={sowingRateDataFetched[wantedProperty].maxSliderVal}
       {step}
       bind:value={sowingRateDataWorking[wantedProperty]}
-      class="max-width"
+      class={currClass}
     />
   </div>
 

@@ -113,6 +113,7 @@
             <SowingRateConst
               bind:textMap={$store.textMap}
               bind:sowingRateDataWorking
+              bind:sowingRateDataFetched
               unit={sowingRateDataFetched[cultureProperty].unit}
               wantedProperty={cultureProperty}
             />
