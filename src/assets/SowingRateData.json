@@ -30,9 +30,11 @@
       "maxSliderVal": 2.2
     },
     "purity": {
-      "type": "const",
+      "type": "slider",
+      "step": 1,
       "unit": "%",
-      "val": 99.0
+      "minSliderVal": 75,
+      "maxSliderVal": 99
     },
     "germination": {
       "type": "slider",

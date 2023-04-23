@@ -27,9 +27,9 @@
   //reactively update the css
   $: if (
     sowingRateDataWorking[wantedProperty] <
-      sowingRateDataFetched[wantedProperty].minSliderVal ||
+      sowingRateDataFetched[wantedProperty].values[0] ||
     sowingRateDataWorking[wantedProperty] >
-      sowingRateDataFetched[wantedProperty].maxSliderVal
+      sowingRateDataFetched[wantedProperty].values[sowingRateDataFetched[wantedProperty].values.length - 1]
   ) {
     currClass = "outside-safe-range";
   } else {

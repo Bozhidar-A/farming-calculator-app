@@ -67,9 +67,9 @@
     "SowingRate_germination": "Кълняемост, %",
     "SowingRate_rowSpacingCm": "Междуредово растояние, cm",
     "SowingRate_sowingRateSafeSeedsPerMeterSquared": "Сеитбена норма, брой семена на m²",
-    "SowingRate_sowingRatePlantsPerDecare": "Сеитбена норма pастения, da",
+    "SowingRate_sowingRatePlantsPerDecare": "Сеитбена норма, pастения на da",
     "SowingRate_usedSeedsKgPerDecare": "Количество/разход семена, kg/da",
-    "SowingRate_internalRowHeightCm": "Вътрередово разстояние, см",
+    "SowingRate_internalRowHeightCm": "Вътрередово разстояние, cm",
     "Calculate": "Изчисли"
   }
 }
