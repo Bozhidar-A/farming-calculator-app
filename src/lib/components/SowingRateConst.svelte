@@ -24,6 +24,7 @@
   <div class="component-var-input">
     <input
       type="number"
+      step="0.01"
       class={currClass}
       bind:value={sowingRateDataWorking[wantedProperty]}
       on:change={(e) => {

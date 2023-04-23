@@ -136,6 +136,18 @@ export class SowingRate implements SowingRateInterface {
   }
 
   // funcs
+  CmToMeters(cm: number): number{
+    return cm / 100;
+  }
+
+  MetersToCm(meters: number): number {
+    return meters * 100;
+  }
+
+  MetersSquaredToDecare(metersSquared: number): number {
+    return metersSquared * 1000;
+  }
+
   FillWithData(data:SowingRateFetchedInterface): void{
     //this is VERY bad and there is a way to make this more sane, but this works
     Object.keys(data).forEach((key) => {
@@ -165,7 +177,7 @@ export class SowingRate implements SowingRateInterface {
   }
 
   CalculateSowingRatePlantsDa(): number {
-    return this.CalculateSowingRateSafeSeedsPerMeterSquared() * 1000;
+    return this.MetersSquaredToDecare(this.CalculateSowingRateSafeSeedsPerMeterSquared());
   }
 
   CalculateUsedSeedsKgPerDa(): number {
@@ -179,10 +191,13 @@ export class SowingRate implements SowingRateInterface {
 
   CalculateInternalRowHeightCm(): number {
     return (
-      10000 /
-      this.rowSpacingCm /
-      this.CalculateSowingRateSafeSeedsPerMeterSquared()
-    );
+      this.MetersToCm((
+        1000 / //from formula
+        (this.CmToMeters(this.rowSpacingCm)) // input is in cm, but formula needs meters, so convert it
+      )) // according to the formula we need to turn it back to cm
+      /
+      this.CalculateSowingRatePlantsDa()
+    )
   }
 
   CalculateEndResults(): void {

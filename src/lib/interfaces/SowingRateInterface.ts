@@ -17,6 +17,9 @@ export default interface SowingRateInterface {
   internalRowHeightCm: number;
 
   // funcs
+  CmToMeters(cm: number): number;
+  MetersToCm(meters: number): number;
+  MetersSquaredToDecare(metersSquared: number): number;
   CalculateSowingRateSafeSeedsPerMeterSquared(): number;
   CalculateSowingRatePlantsDa(): number;
   CalculateUsedSeedsKgPerDa(): number;

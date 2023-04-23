@@ -28,7 +28,6 @@
 
   // just find all the supported culture from the json data
   let supportedCultures: {}[] = data.map((entry) => entry.culture);
-  console.log(supportedCultures)
 
   function UpdateCultureData(event) {
     let newCult = data.find((entry) => entry.culture.id == event.target.value);
@@ -120,21 +119,10 @@
           {/if}
         {/each}
       </div>
-      <button
-        on:click={() => {
-          sowingRateDataWorking.wantedPlantsPerMeterSquared = 28;
-          sowingRateDataWorking.massPer1000g = 200;
-          sowingRateDataWorking.germination = 92;
-          sowingRateDataWorking.rowSpacingCm = 70;
-        }}>force known result test vals</button
-      >
-      <button on:click={() => console.log(sowingRateDataWorking)}
-        >debug print</button
-      >
       <hr />
 
       <div class="outputs">
-        <button on:click={CalculateEndResults} class="full-width large-text spacing">~~~ = ~~~</button>
+        <button on:click={CalculateEndResults} class="full-width large-text spacing">{$store.textMap.Calculate}</button>
 
         <SowingRateOutput
           bind:textMap={$store.textMap}

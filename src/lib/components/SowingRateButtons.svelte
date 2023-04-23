@@ -57,12 +57,13 @@
             HandleButtonClick(value);
           }}
         >
-          {value}
+          {value.toFixed(2)}
         </button>
       {/each}
     </div>
     <input
       type="number"
+      step="0.01"
       class={currClass}
       bind:value={sowingRateDataWorking[wantedProperty]}
       on:change={(e) => {
